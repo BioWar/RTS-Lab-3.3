@@ -1,0 +1,91 @@
+<ItemLabel@Label>:
+	font_size: '20sp'
+	halign: 'left'
+	valign: 'middle'
+	text_size: self.size
+
+<ItemInput@TextInput>:
+	font_size: '40sp'
+	multiline: False
+	input_type: 'number'
+
+<Container>:
+	rows: 3
+	y_val: y_val
+	x_1: x_1
+	x_2: x_2
+	x_3: x_3
+	x_4: x_4
+	answer: answer
+
+	AnchorLayout:
+		size_hint: 1, 0.10
+		padding: 30
+
+		ItemLabel: 
+			text: 'RTS Lab 3.3 IO-71 Vorotyntsev'
+
+	GridLayout:
+		size_hint: 0.8, 0.4
+		cols: 2
+
+		BoxLayout:
+			orientation: 'vertical'
+			padding: [30, 0, 0, 0]
+
+			ItemLabel:
+				text: "y"
+
+			ItemLabel:
+				text: "x1"
+
+			ItemLabel:
+				text: "x2"
+
+			ItemLabel:
+				text: "x3"
+			
+			ItemLabel:
+				text: "x4"
+	
+		BoxLayout:
+			orientation: 'vertical'
+			size_hint: 0.5, 1
+
+			ItemInput:
+				id: y_val
+				input_filter: 'float'
+			
+			ItemInput:
+				id: x_1
+				input_filter: 'float'
+
+			ItemInput:
+				id: x_2
+				input_filter: 'float'
+
+			ItemInput:
+				id: x_3
+				input_filter: 'float'
+
+			ItemInput:
+				id: x_4
+				input_filter: 'float'
+
+
+	BoxLayout:
+		size_hint: 0.9, 0.15
+		padding: [30, 0, 30, 20]
+		orientation: 'vertical'
+
+		ItemLabel:
+			id: answer
+			font_size: '60'
+			text: 'y = x1*w1 + ...'
+
+		Button:
+			text: 'Go!'
+			font_size: 40
+			on_release:
+				root.calculate()
+
